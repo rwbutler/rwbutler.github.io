@@ -1,0 +1,12 @@
+# Site settings
+title: R.W.Butler's Engineering Blog
+email: 
+description: > # this means to ignore newlines until "baseurl:"
+  Engineering Blog
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://rwbutler.github.io" # the base hostname & protocol for your site
+twitter_username: ross_w_butler
+github_username:  rwbutler
+
+# Build settings
+markdown: kramdown
