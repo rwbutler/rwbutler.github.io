@@ -1,4 +1,9 @@
-# Local Notifications on iOS
+---
+layout: post
+title:  "Local Notifications on iOS"
+date:   2015-08-04 22:30:35
+categories: ios local notifications
+---
 
 **Note: This blog post is currently a work in progress.**
 
