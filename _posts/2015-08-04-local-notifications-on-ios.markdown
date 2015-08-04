@@ -9,7 +9,7 @@ categories: ios local notifications
 
 Remote notifications, also known as *push notifications*, are a mechanism for informing the user of an app about a content update. They are especially useful in creating engagement with an app and driving retention when used correctly. In order to implement push notifications, some server-side architecture is required including a database to store the tokens needed to send a notification to each registered device. 
 
-There exists another type of notification mechanism on iOS which aren't as well known called local notifications. Local notifications do not require server-side architecture - they are scheduled by an app while it is running rather than being received from Apple's Push Notifcation Service (APNS). Local notifications are indistinguishable from remote notifications to the user - both are displayed in the Notification Centre on an iOS device. The two types of notification mechanism together are referred to as [user notifications](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html).
+There exists another type of notification mechanism on iOS which isn't as well known - *local notifications*. Local notifications do not require server-side architecture - they are scheduled by an app while it is running rather than being received from Apple's Push Notifcation Service (APNS). Local notifications are indistinguishable from remote notifications to the user - both are displayed in the Notification Centre on an iOS device. The two types of notification mechanism together are referred to as [user notifications](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html).
 
 This blog post will provide a short tutorial on how to implement local notifications in an app. Sample code is available to accompany this post on [GitHub](https://github.com/rwbutler/local-notifications-example).
 
@@ -50,17 +50,17 @@ Setting a breakpoint within the method and then invoking the command `po notific
 
     <UIUserNotificationSettings: 0x7fdf0bf60b10; types: (UIUserNotificationTypeAlert UIUserNotificationTypeBadge UIUserNotificationTypeSound);>
     
-If the request is denied then the `types` property will contain *none* indicating that none of the permissions you have requested have been granted as follows:
+If the request is denied then the `types` property will contain *none* indicating that none of the permissions requested have been granted as follows:
 
     <UIUserNotificationSettings: 0x7f84d34d2710; types: (none);>
 
 ## Asking the user for permission
 
-A significant challenge for iOS developers is the fact that having requested permissions, should the user deny the request, there is no easy way to request permissions again in the future. The only way for the user to grant the app permissions at a later date is through the *Settings* app which third-party applications cannot link to therefore users must find their way to the relevant settings view.
+A significant challenge for iOS developers is the fact that having requested permissions, should the user deny the request, there is no easy way to request permissions again in the future. The only way for the user to grant the app permissions at a later date is through the *Settings* app.
 
-A common practice these days is to display a dialog or view prior to registering user notfication settings explaining why the app is requesting permissions. This approach typically leads to the a much higher number of users granting the app permissions to send notifications. Brenden Mulligan's TechCrunch article the [The Right Way To Ask Users For iOS Permissions](http://techcrunch.com/2014/04/04/the-right-way-to-ask-users-for-ios-permissions/) provides further insight into this approach.
+A common practice these days is to display a dialog or view prior to registering user notfication settings explaining why the app is requesting permissions. This approach, known as *onboarding*, typically leads to the a much higher number of users granting the app permissions to send notifications. Brenden Mulligan's TechCrunch article the [The Right Way To Ask Users For iOS Permissions](http://techcrunch.com/2014/04/04/the-right-way-to-ask-users-for-ios-permissions/) provides further insight and is worth a read.
 
-This strategy has been implemented in our sample app. The user is initially presented with the initial view controller named `ViewController.m`. The view contains a button labelled *Schedule a notification in five seconds*. On button touch, the app presents another view controller named `PermissionsRequestViewController.m`. 
+This onboarding strategy has been implemented in our sample app. The user is initially presented with the initial view controller named `ViewController.m`. The view contains a button labelled *Schedule a notification in five seconds*. On button touch, the app presents another view controller named `PermissionsRequestViewController.m`. 
 
 This view explains that the user will be presented with a prompt asking whether they will grant permission for the app to send notifications. There are two buttons on this view - one labelled 'Yes', the other labelled 'No, not right now'. Should the user select yes then the app will request permissions to send notifications, otherwise the app does not request permissions and dismisses the current view controller returning the user to the original view. In this way, we reduce the number of users who decline the iOS permissions prompt.
 
@@ -74,7 +74,7 @@ The simplest means of achieving this is probably to use [`NSUserDefaults`](https
 
 Therefore in `PermissionsRequestViewController.m` after invoking `registerUserNotificationSettings:` we have the following lines to record that we have now requested permissions to send notifications:
 
-            // Set user default indicating that we have requested permissions to send local notifications
+        // Set user default indicating that we have requested permissions to send local notifications
         
         [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"RequestedPermissions"];
         
