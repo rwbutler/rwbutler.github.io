@@ -23,6 +23,7 @@ When invoking this method, you will need to specify which permissions you will r
 
 You may request only one of these permissions, two, or all of the above as follows:
 
+{% highlight objective-c %}
 
         [[UIApplication sharedApplication] registerUserNotificationSettings:
          [UIUserNotificationSettings settingsForTypes:
@@ -31,6 +32,7 @@ You may request only one of these permissions, two, or all of the above as follo
           UIUserNotificationTypeSound categories:nil]
          ];
         
+{% endhighlight %}
 
 If you need to support versions of iOS prior to iOS 8 then you should check to see whether `registerUserNotificationSettings:` exists. This can be achieved using the line:
 
@@ -72,11 +74,17 @@ The simplest means of achieving this is probably to use [`NSUserDefaults`](https
 
 Therefore in `PermissionsRequestViewController.m` after invoking `registerUserNotificationSettings:` we have the following lines to record that we have now requested permissions to send notifications:
 
+{% highlight objective-c %}
+
         // Set user default indicating that we have requested permissions to send local notifications
         
         [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"RequestedPermissions"];
         
+{% endhighlight %}
+
 In combination with a call to `[[UIApplication sharedApplication] currentUserNotificationSettings]` we can now determine whether permissions have been denied or whether we have yet to request access:
+
+{% highlight objective-c %}
 
     // Check whether we have any permissions
     
@@ -99,11 +107,15 @@ In combination with a call to `[[UIApplication sharedApplication] currentUserNot
         }
     }
 
+{% endhighlight %}
+
 ## Sending a local notification
 
 Having checked that we have permissions to send notifications and assuming that our request has been granted, we are now ready to send the local notification itself.
 
 In our sample app we schedule a notification to be triggered five seconds from button tap as follows:
+
+{% highlight objective-c %}
 
     // Create a local notification
     
@@ -119,9 +131,13 @@ In our sample app we schedule a notification to be triggered five seconds from b
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
+{% endhighlight %}
+
 If you choose to badge the application, play a sound or display an alert as in the above then ensure that you have obtained the relevant permissions when invoking `registerUserNotificationSettings:`.
 
 Since our sample app will likely still be in the foreground when we receive our local notification, we also implement `didReceiveLocalNotification:` of `UIApplicationDelegate` and display an alert indicating that we have received a notification, directing the user to check the notification centre.
+
+{% highlight objective-c %}
 
      // Create an alert indicating that we have received a local notification
     
@@ -132,6 +148,8 @@ Since our sample app will likely still be in the foreground when we receive our 
     // Show the alert
     
     [alertView show];
-    
+
+{% endhighlight %}
+
 By now you should have a fully working example app sending local notifications. If in doubt, take a look at and try building the sample code on [GitHub](https://github.com/rwbutler/local-notifications-example). 
 
