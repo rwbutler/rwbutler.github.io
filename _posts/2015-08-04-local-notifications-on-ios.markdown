@@ -5,8 +5,6 @@ date:   2015-08-04 22:30:35
 categories: ios local notifications
 ---
 
-**Note: This blog post is currently a work in progress.**
-
 Remote notifications, also known as *push notifications*, are a mechanism for informing the user of an app about a content update. They are especially useful in creating engagement with an app and driving retention when used correctly. In order to implement push notifications, some server-side architecture is required including a database to store the tokens needed to send a notification to each registered device. 
 
 There exists another type of notification mechanism on iOS which isn't as well known - *local notifications*. Local notifications do not require server-side architecture - they are scheduled by an app while it is running rather than being received from Apple's Push Notifcation Service (APNS). Local notifications are indistinguishable from remote notifications to the user - both are displayed in the Notification Centre on an iOS device. The two types of notification mechanism together are referred to as [user notifications](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html).
