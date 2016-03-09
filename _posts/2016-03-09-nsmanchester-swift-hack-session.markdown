@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "NSManchester - Swift Hack Session"
-date:   2015-08-04 22:30:35
+date:   2016-09-03 23:36:35
 categories: ios swift hack open source
 ---
 
