@@ -5,7 +5,7 @@ subtitle: "Toggle features, phase feature roll outs and run A/B tests in your iO
 ---
 
 <div align="center">
-    <img src="../img/flags.jpg" alt="FeatureFlags View Logo">
+    <img src="https://github.com/rwbutler/rwbutler.github.io/raw/master/img/flags.jpg" alt="Flags Image">
 </div>
 
 There are a lot of platforms charging monthly subscriptions to provide feature flagging and A/B testing capabilities for iOS apps these days but all it really takes is a JSON file and some client-side code.
@@ -187,6 +187,9 @@ To configure a feature A/B test use the following JSON:
     "enabled": true, // whether or not the test is enabled
     "test-variations": ["Enabled", "Disabled"]
 }
+```
+
+```swift
 extension Feature.Name {
     static let exampleFeatureABTest = Feature.Name(rawValue: "Example Feature A/B Test")
 }
@@ -411,5 +414,5 @@ _FeatureFlags can be found open-sourced on [GitHub](https://github.com/rwbutler/
 <hr/>
 
 <div align="center">
-    <img width="150" height="150" src="https://github.com/rwbutler/FeatureFlags/raw/master/docs/images/feature-flags-logo.png" alt="FeatureFlags View Logo">
+    <img width="150" height="150" src="https://github.com/rwbutler/FeatureFlags/raw/master/docs/images/feature-flags-logo.png" alt="FeatureFlags Logo">
 </div>
