@@ -5,7 +5,7 @@ subtitle: "Toggle features, phase feature roll outs and run A/B tests in your iO
 ---
 
 <div align="center">
-    <img src="https://github.com/rwbutler/rwbutler.github.io/raw/master/img/flags.jpg" alt="Flags Image">
+    <img src="https://github.com/rwbutler/rwbutler.github.io/raw/master/img/feature-flags-ab-testing-and-mvt-on-ios.png" alt="Flags">
 </div>
 
 There are a lot of platforms charging monthly subscriptions to provide feature flagging and A/B testing capabilities for iOS apps these days but all it really takes is a JSON file and some client-side code.
