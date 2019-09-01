@@ -165,4 +165,4 @@ _Connectivity can be found open-sourced on [GitHub](https://github.com/rwbutler/
     <img width="150" height="150" src="https://github.com/rwbutler/Connectivity/raw/master/docs/images/connectivity-logo.png" alt="Connectivity Logo">
 </div>
 
-_If you found this article interesting, a subsequent article Detecting Internet Access on iOS 12+ explains how the Network framework introduced in iOS 12 can be used in place of Reachability._
+_If you found this article interesting, a subsequent article [Detecting Internet Access on iOS 12+](https://rwbutler.github.io/2018-12-26-detecting-internet-access-on-ios-12) explains how the Network framework introduced in iOS 12 can be used in place of Reachability._
