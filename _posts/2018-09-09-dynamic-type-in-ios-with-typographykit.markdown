@@ -113,7 +113,7 @@ Having defined the typography styles for an app, these styles may be applied to 
 <br/>
 
 <div align="center">
-    <img src="https://github.com/rwbutler/rwbutler.github.io/raw/master/img/dynamic-type-in-ios-using-typographykit.png" alt="Setting a Key Path in Interface Builder’s Identity Inspector">
+    <img src="https://github.com/rwbutler/rwbutler.github.io/raw/master/img/dynamic-type-in-ios-with-typographykit.png" alt="Setting a Key Path in Interface Builder’s Identity Inspector">
 </div>
 
 <br/>
