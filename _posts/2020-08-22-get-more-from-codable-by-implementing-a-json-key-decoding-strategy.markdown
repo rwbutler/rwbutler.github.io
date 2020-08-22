@@ -106,7 +106,7 @@ However, if you’d rather make use of some pre-written implementations then [Le
 - `convertFromUpperCase`
 - `convertFromUpperCamelCase`
 
-[LetterCase](https://github.com/rwbutler/LetterCase) is an open-source framework available under MIT license compatible with [Cocoapods](https://cocoapods.org/pods/LetterCase), Carthage and [Swift Package Manager](https://swiftpackageindex.com/rwbutler/LetterCase).
+[LetterCase](https://github.com/rwbutler/LetterCase) is an open-source framework available under MIT license compatible with [Cocoapods](https://cocoapods.org/pods/LetterCase), Carthage and [Swift Package Manager](https://swiftpackageindex.com/rwbutler/LetterCase). As well as providing implementation of `JSONDecoder.KeyDecodingStrategy` for decoding JSON it provides implementations of `JSONEncoder.KeyEncodingStrategy` for going the other way and encoding JSON keys.
 
 It also provides an implementation for converting from one letter case to another therefore you if you wanted to decode the original JSON file:
 
