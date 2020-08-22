@@ -12,15 +12,15 @@ _[Codable](https://developer.apple.com/documentation/swift/codable) is a protoco
 
 Imagine you have the following JSON you wish to deserialize:
 
-<script src="https://gist.github.com/rwbutler/9e8922225600f84ff6d94ce1dbbb3d88.js"></script>
+<script src="https://gist.github.com/rwbutler/58c0a6769abfbbd0b1228ec182f0e476.js"></script>
 
 Here’s the series of Swift structures you might write to deserialize the data:
 
-{% gist https://gist.github.com/rwbutler/9e8922225600f84ff6d94ce1dbbb3d88 %}
+<script src="https://gist.github.com/rwbutler/9e8922225600f84ff6d94ce1dbbb3d88.js"></script>
 
 Then using JSONDecoder decode the data as follows:
 
-{% gist https://gist.github.com/rwbutler/9220a6cde820e08d2684eee943cba89d %}
+<script src="https://gist.github.com/rwbutler/9220a6cde820e08d2684eee943cba89d.js"></script>
 
 Very quickly you’ll run into the following error message:
 
@@ -32,15 +32,15 @@ That’s because the `JSONDecoder` is looking for the the key `travelsOn` in you
 
 No problem, we can solve this by implementing `CodingKeys` and custom conformance to the `Codable` protocol as follows:
 
-{% gist https://gist.github.com/rwbutler/cd6638ddb21f062261e39b8f1a45ba16 %}
+<script src="https://gist.github.com/rwbutler/cd6638ddb21f062261e39b8f1a45ba16.js"></script>
 
 We’ve implemented our own initializer and encode function in order deserialize / serialize using the JSON keys provided by our CodingKeys enum. But that’s quite a bit of extra code - had our JSON keys been in snake case as follows then it would have made life much easier:
 
-{% gist https://gist.github.com/rwbutler/85c393a155a0272a21cb0d700cec9984 %}
+<script src="https://gist.github.com/rwbutler/85c393a155a0272a21cb0d700cec9984.js"></script>
 
 This is because in this instance, we could have specified a JSON key decoding strategy and avoided have to write all of that extra code:
 
-{% gist https://gist.github.com/rwbutler/679d4f89d4d511170198bbeeb6f9b24e %}
+<script src="https://gist.github.com/rwbutler/679d4f89d4d511170198bbeeb6f9b24e.js"></script>
 
 This one line of code specifying a `keyDecodingStrategy` saved us from having to implement an initalizer, encode function and CodingKeys enum.
 
@@ -54,7 +54,7 @@ case custom(([CodingKey]) -> CodingKey)
 
 This allows us the ability to implement our own custom key decoding strategy for decoding keys in whatever format we wish. All we need to do is provide an implementation of the custom key decoding strategy returning an implementation of the [CodingKey](https://developer.apple.com/documentation/swift/codingkey) protocol (we’ve named our implementation `AnyKey` following the example provided in the [Apple documentation](https://developer.apple.com/documentation/foundation/jsondecoder/keydecodingstrategy/custom)):
 
-{% gist https://gist.github.com/rwbutler/6323a90b2a24c9b196e19de15589ef13 %}
+<script src="https://gist.github.com/rwbutler/6323a90b2a24c9b196e19de15589ef13.js"></script>
 
 Note that the CodingKey protocol defines two [failable initializers](https://developer.apple.com/swift/blog/?id=17) which must be implemented:
 
@@ -87,7 +87,7 @@ You might have wondered why we needed to provided an implementation of the initi
 
 Using our new key decoding strategy, all we need write to decode our original JSON file is:
 
-{% gist https://gist.github.com/rwbutler/6d5bfad21d4edd62c41dbf470c257f6d %}
+<script src="https://gist.github.com/rwbutler/6d5bfad21d4edd62c41dbf470c257f6d.js"></script>
 
 The new key coding strategy can be applied every time we need to use the Codable protocol to deserialize from JSON into a Swift structure from now on making it worth the initial investment of writing a custom key decoding strategy.
 
@@ -109,16 +109,15 @@ However, if you’d rather make use of some pre-written implementations then [Le
 
 It also provides an implementation for converting from one letter case to another therefore you if you wanted to decode the original JSON file:
 
-{% gist https://gist.github.com/rwbutler/6d5bfad21d4edd62c41dbf470c257f6d %}
+<script src="https://gist.github.com/rwbutler/58c0a6769abfbbd0b1228ec182f0e476.js"></script>
 
 Into variables of macro case e.g.
 
-{% gist https://gist.github.com/rwbutler/5bf0d2b2d9450cd41a4ecdbb5f8e32cd %}
+<script src="https://gist.github.com/rwbutler/5bf0d2b2d9450cd41a4ecdbb5f8e32cd.js"></script>
 
 Then this could be achieved as follows:
 
-{% gist https://gist.github.com/rwbutler/9c0e7b84d6d9d25f5f042a6dd655d8c2
- %}
+<script src="https://gist.github.com/rwbutler/9c0e7b84d6d9d25f5f042a6dd655d8c2.js"></script>
 
 ## Summary
 
